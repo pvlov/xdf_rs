@@ -33,29 +33,26 @@
 //!# }
 //!```
 
-use std::collections::HashMap;
-
-use std::iter::Iterator;
-use std::sync::Arc;
-
 mod chunk_structs;
 mod errors;
-
+mod parsers;
 mod sample;
-pub use sample::Sample;
-
 mod streams;
 mod util;
 
+use log::warn;
+use std::collections::HashMap;
+use std::iter::Iterator;
+use std::sync::Arc;
+
+pub use sample::Sample;
+pub use streams::Stream;
+
 use chunk_structs::{BoundaryChunk, ClockOffsetChunk, FileHeaderChunk, StreamFooterChunk, StreamHeaderChunk};
 use errors::{ParseError, StreamError, XDFError};
-use log::warn;
-use streams::Stream;
 use util::FiniteF64;
 
 use crate::chunk_structs::Chunk;
-
-mod parsers;
 use crate::parsers::xdf_file::xdf_file_parser;
 
 type StreamID = u32;
