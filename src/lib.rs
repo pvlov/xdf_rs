@@ -45,11 +45,12 @@ use std::collections::HashMap;
 use std::iter::Iterator;
 use std::sync::Arc;
 
+pub use errors::XDFError;
 pub use sample::Sample;
 pub use streams::Stream;
 
 use chunk_structs::{BoundaryChunk, ClockOffsetChunk, FileHeaderChunk, StreamFooterChunk, StreamHeaderChunk};
-use errors::{ParseError, StreamError, XDFError};
+use errors::{ParseError, StreamError};
 use util::FiniteF64;
 
 use crate::chunk_structs::Chunk;
